@@ -153,17 +153,13 @@ main .title {
 }
 
 .project {
-    height: 250px;
+    height: 300px;
     padding: 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-svg.project-icon {
-    width: 18px;
-    height: 18px;
-}
 
 /** PROJECT CONTENT **/
 .project-bar {
@@ -173,6 +169,29 @@ svg.project-icon {
 
 ul.project-icons {
     display: flex;
+}
+
+ul.project-icons li {
+    display:flex;
+    justify-content: center;
+}
+
+.project-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/*** PROJECT ICONS ***/
+.ic-share::before {
+    content: url(assets/icons8-share.svg);
+};
+
+.ic-edit {
+
+}
+
+.ic-delete {
+
 }
 
 /*ASIDE CONTENT*/
