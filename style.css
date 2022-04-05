@@ -4,6 +4,9 @@
     --border-thickness: 1px;
     --border-style: solid;
     --border-color: red;
+
+    --color-lighter: hsl(0, 96%, 82%);
+    --color-darker: hsl(0, 83%, 28%);
 }
 
 
@@ -57,7 +60,6 @@ header {
     grid-area: 1/2/2/4;
     border-left: var(--border-thickness) var(--border-color) var(--border-style);
     border-bottom: var(--border-thickness) var(--border-color) var(--border-style);
-
 }
 
 main {
@@ -89,7 +91,7 @@ main{
 }
 
 aside {
-    padding: 24px 0px;
+    padding: 24px 0px 18px;
 }
 
 /* HEADER CONTENT */
@@ -101,8 +103,11 @@ header {
 }
 
 .search-wrapper {
-    flex: 1;
+    flex: 2;
     margin-right: 24px;
+
+    display: flex;
+    align-items: center;
 }
 
 .search-bar {
@@ -110,47 +115,83 @@ header {
     height: 40px;
     border-radius: 40px;
     border: var(--border-color) var(--border-style) var(--border-thickness);
+    padding: 0px 12px;
+
+    width: 100%;
+    max-width: 360px;
+
+    margin-right: 12px;
+}
+
+.search-bar::placeholder {
+    color: var(--color-lighter);
+}
+
+.search-bar:hover {
+    background-color: var(--border-color);
+    color:white;
+}
+
+.search-bar:focus {
+    background-color: var(--border-color);
+    color: white;
+    outline: var(--color-lighter) var(--border-style) 3px;
+}
+
+.search-icon {
+    background-color: transparent;
+    border: none;
+
+    display: flex;
+    align-items: center;
 }
 
 .btn {
     font-size: 1rem;
     height: 40px;
-    width: 100px;
+    width: 120px;
     background-color: transparent;
     border-radius: 40px;
     border: var(--border-color) var(--border-style) var(--border-thickness);
 }
 
+.btn:hover {
+    background-color: var(--border-color);
+    color: white;
+}
+
 /* NAV CONTENT */
 nav {
-    padding: 24px 0px;
+    padding-bottom: 24px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     padding-left: 24px;
+    color: var(--border-color)
 }
 
-/*
-.company-logo {
-    width: 36px;
-    height: 36px;
-    align-self: center;
+.logo:hover {
+    background-color: var(--border-color);
+    color: white;
 }
-*/
 
 .company-name {
-    
     font-size: 1.5rem;
-    color: red;
+    color: inherit;
 }
 
 .profile {
     display: flex;
-    margin-bottom: 24px;
-    padding: 0px 24px;
+    padding: 24px 24px;
     align-items: center;
+    color: var(--border-color);
+}
+
+.profile:hover {
+    color: white;
+    background-color: var(--border-color);
 }
 
 .profile-picture {
@@ -164,6 +205,17 @@ nav {
     font-weight: 900;
     font-size: 1.5rem;
     text-transform: uppercase;
+
+    color: inherit;
+}
+
+.profile-name > a {
+    color: inherit;
+}
+
+.profile-name > a:hover {
+    color: inherit;
+    text-decoration: underline dashed 3px white;
 }
 
 /** MENU CONTENT **/
@@ -181,7 +233,12 @@ nav {
     border-bottom: var(--border-thickness) var(--border-color) var(--border-style);
 }
 
-.first-item {
+.link:hover {
+    background-color: var(--border-color);
+    color: white;
+}
+
+.link:first-of-type {
     border-top: var(--border-thickness) var(--border-color) var(--border-style);
 }
 
@@ -307,6 +364,10 @@ nav {
 
 /*MAIN CONTENT*/
 
+main:hover {
+    background-color: var(--color-lighter);
+}
+
 main .title {
     padding-bottom: 24px;
 }
@@ -319,7 +380,7 @@ main .title {
 
 .project {
     height: 300px;
-    padding: 18px;
+    padding: 18px 18px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -327,22 +388,40 @@ main .title {
 }
 
 
+.project:hover {
+    background-color: var(--border-color);
+    color: white;
+}
+
+.project:hover .project-bar {
+    background-color: white;
+}
+
+
 /** PROJECT CONTENT **/
-.project-info {}
+.project-info {
+    color: inherit;
+}
 
 .project-title {
+    color: inherit;
     line-height: 1.5rem;
     margin-bottom: 0.75rem;
 }
 
+.project-desc {
+    color: inherit;
+}
+
 .project-bar {
     border-top: var(--border-thickness) var(--border-color) var(--border-style);
-    padding-top: 18px;
+    padding: 18px 0px;
     margin-left: -18px;
     margin-right: -18px;
 
     display: flex;
     justify-content: space-between;
+
 }
 
 .progress {
@@ -369,21 +448,22 @@ ul.project-icons li {
 /*ASIDE CONTENT*/
 
 .notifications {
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
+
+.notifications > h2,
+.users > h2 {
+    padding: 0px 24px 24px;
+    border-bottom: var(--border-thickness) var(--border-color) var(--border-style);
+}
 
 .notification > h3,
 .user h3 {
     font-size: 1rem;
     margin-bottom: 12px;
     line-height: 1.2rem;
-}
-
-.notifications > h2,
-.users > h2 {
-    padding: 0px 24px 24px;
-    border-bottom: var(--border-thickness) var(--border-color) var(--border-style);
+    color: inherit;
 }
 
 
@@ -392,10 +472,7 @@ ul.project-icons li {
 .notifications > p,
 .users > p {
     font-size: 0.9rem;
-}
-
-.last-item {
-    border-bottom: var(--border-thickness) var(--border-color) var(--border-style);
+    color: inherit;
 }
 
 .notification {
@@ -403,10 +480,19 @@ ul.project-icons li {
     padding: 18px 24px;
 }
 
+.notification:hover {
+    color: white;
+    background-color: var(--border-color);
+}
+
 .more {
     text-align: right;
     padding-top: 18px;
     padding-right:24px;
+}
+
+.more > a:hover {
+    text-decoration: underline dashed var(--border-color) 2px;
 }
 
 /**ASIDE: USERS**/
@@ -423,6 +509,12 @@ ul.project-icons li {
     align-content: center;
 
     padding: 18px 24px;
+    color: var(--border-color);
+}
+
+.user:hover {
+    background-color: var(--border-color);
+    color: white;
 }
 
 .user-icon {
@@ -430,4 +522,8 @@ ul.project-icons li {
     grid-column: 1/2;
     height: 30px;
     width: 30px;
+}
+
+.user-wrapper {
+    color: inherit;
 }
