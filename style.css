@@ -100,6 +100,11 @@ header {
     padding: 24px 24px;
     justify-content: space-between;
     align-items:center;
+    position: sticky;
+    top: 0;
+
+    background-color: white;
+    z-index: 1;
 }
 
 .search-wrapper {
@@ -160,16 +165,17 @@ header {
     color: white;
 }
 
-/* NAV CONTENT */
-nav {
-    padding-bottom: 24px;
-}
-
+/* LOGO CONTENT */
 .logo {
     display: flex;
     align-items: center;
     padding-left: 24px;
-    color: var(--border-color)
+    color: var(--border-color);
+    position:sticky;
+    top: 0;
+    z-index: 1;
+
+    background-color: white;
 }
 
 .logo:hover {
@@ -180,6 +186,11 @@ nav {
 .company-name {
     font-size: 1.5rem;
     color: inherit;
+}
+
+/* NAV CONTENT */
+nav {
+    padding-bottom: 24px;
 }
 
 .profile {
@@ -391,6 +402,7 @@ main .title {
 .project:hover {
     background-color: var(--border-color);
     color: white;
+
 }
 
 .project:hover .project-bar {
